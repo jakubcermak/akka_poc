@@ -16,7 +16,7 @@ namespace ConsoleApplication1
         {
             statusActor = Context.ActorOf<StatusActor>("status");
 
-            Props props = Props.Create<CreditInfoPlusReportActor>(() => new CreditInfoPlusReportActor())
+            Props props = Props.Create<CreditInfoPlusReportActor>(statusActor)
                 .WithRouter(new RoundRobinPool(10))
                 .WithMailbox("my-mailbox");
 

@@ -10,9 +10,9 @@ namespace ConsoleApplication1
         private readonly ILoggingAdapter _log = Logging.GetLogger(Context);
         private IActorRef statusActor;
 
-        public CreditInfoPlusReportActor()
+        public CreditInfoPlusReportActor(IActorRef statusActor)
         {
-            //this.statusActor = statusActor;
+            this.statusActor = statusActor;
             Receive<CreditInfoReportMessage>(m => ProcessMessage(m));
         }
 
@@ -26,7 +26,7 @@ namespace ConsoleApplication1
             JobResultStorage.Instance.Save(m.JobId, new CreditInfoReport());
             _log.Info("job " + m.JobId + " finished");
             Sender.Tell(new JobCompletionReplyMessage { JobId = m.JobId, IsSuccess = true });
-            //statusActor.Tell(new StatusMessage { JobId = m.JobId, Completed = true });
+            statusActor.Tell(new StatusMessage { JobId = m.JobId, Completed = true });
         }
     }
 }
