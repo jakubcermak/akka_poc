@@ -16,6 +16,7 @@ namespace ConsoleApplication1
             Task.Run(async () =>
             {
                 var facade = new ReportProcessorFacade();
+                Console.ReadLine();
                 Random rnd = new Random();
                 var tasks = Enumerable.Range(0, 300).Select(async i =>
                 {

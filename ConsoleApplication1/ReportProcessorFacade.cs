@@ -23,7 +23,7 @@ namespace ConsoleApplication1
             message.JobId = id;
             try
             {
-                JobCompletionReplyMessage result = await coordinatorActor.Ask<JobCompletionReplyMessage>(message, TimeSpan.FromSeconds(5));
+                JobCompletionReplyMessage result = await coordinatorActor.Ask<JobCompletionReplyMessage>(message, TimeSpan.FromSeconds(5000));
                 return new JobResult<TResult>
                 {
                     Result = (TResult) JobResultStorage.Instance.Get(id),

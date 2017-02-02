@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Akka.Actor;
+using Akka.Cluster.Routing;
 using Akka.Routing;
 
 namespace ConsoleApplication1
@@ -15,11 +16,11 @@ namespace ConsoleApplication1
         {
             statusActor = Context.ActorOf<StatusActor>("status");
 
-            Props props = Props.Create<CreditInfoPlusReportActor>(()=>new CreditInfoPlusReportActor(statusActor))
-                .WithRouter(new RoundRobinPool(10, new DefaultResizer(5, 1000)))
-                .WithDispatcher("worker-dispatcher")
+            Props props = Props.Create<CreditInfoPlusReportActor>(() => new CreditInfoPlusReportActor()).WithRouter(new ClusterRouterPool(new RoundRobinPool(10),new ClusterRouterPoolSettings(10, 10, false) ));
+                
+            //    .WithDispatcher("worker-dispatcher")
                 ;
-            creditInfoReportActor = Context.ActorOf(props);
+            creditInfoReportActor = Context.ActorOf(props, "router");
        
             Receive<CreditInfoReportMessage>(msg =>
             {
