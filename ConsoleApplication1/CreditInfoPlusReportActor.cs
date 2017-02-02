@@ -20,9 +20,9 @@ namespace ConsoleApplication1
         {
             Console.WriteLine("REPORT pyèo");
 
-            _log.Info("job " + m.JobId + " started");
+            _log.Info($"job {m.JobId} started, priorty = {m.Priority}");
             
-            Thread.Sleep(10000);
+            Thread.Sleep(2000);
             JobResultStorage.Instance.Save(m.JobId, new CreditInfoReport());
             _log.Info("job " + m.JobId + " finished");
             Sender.Tell(new JobCompletionReplyMessage { JobId = m.JobId, IsSuccess = true });

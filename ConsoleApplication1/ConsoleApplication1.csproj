@@ -93,6 +93,7 @@
     <Compile Include="CreditInfoPlusReportActor.cs" />
     <Compile Include="CreditInfoReport.cs" />
     <Compile Include="CreditInfoReportMessage.cs" />
+    <Compile Include="FoxyMailbox.cs" />
     <Compile Include="InitCompletedMessage.cs" />
     <Compile Include="JobCompletionReplyMessage.cs" />
     <Compile Include="JobMessage.cs" />
