@@ -8,9 +8,9 @@ namespace ConsoleApplication1
 {
     public class CoordinatorActor : ReceiveActor
     {
-        private readonly IActorRef creditInfoReportActor;
+        internal IActorRef creditInfoReportActor;
         private bool isReady = true;
-        private readonly IActorRef statusActor;
+        internal IActorRef statusActor;
 
         public CoordinatorActor()
         {

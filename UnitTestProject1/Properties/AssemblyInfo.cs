@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ConsoleApplication1")]
+[assembly: AssemblyTitle("UnitTestProject1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Creditinfo Solutions s.r.o.")]
-[assembly: AssemblyProduct("ConsoleApplication1")]
+[assembly: AssemblyProduct("UnitTestProject1")]
 [assembly: AssemblyCopyright("Copyright © Creditinfo Solutions s.r.o. 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1cf3eb34-f8c6-4573-9b3b-f10e4c5ac98c")]
+[assembly: Guid("6d8a04bf-c425-4e44-b1e1-a3e00faa119f")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,4 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: InternalsVisibleTo("UnitTestProject1")]

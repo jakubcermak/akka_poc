@@ -8,7 +8,7 @@ namespace ConsoleApplication1
 {
     public class StatusActor : ReceivePersistentActor
     {
-        ConcurrentDictionary<Guid, StatusMessage> statuses = new ConcurrentDictionary<Guid, StatusMessage>();
+        public ConcurrentDictionary<Guid, StatusMessage> statuses = new ConcurrentDictionary<Guid, StatusMessage>();
         private readonly ILoggingAdapter _log = Logging.GetLogger(Context);
 
         public StatusActor()
@@ -48,15 +48,15 @@ namespace ConsoleApplication1
             //}
         }
 
-        protected override void Unhandled(object message)
-        {
-            base.Unhandled(message);
+        //protected override void Unhandled(object message)
+        //{
+        //    base.Unhandled(message);
 
-            if (message is RecoveryCompleted)
-            {
-                Context.ActorSelection("/usr/jobCoordinator").Tell(new InitCompletedMessage(InitCompletedMessage.ActorRole.StatusActor));
-            }
-        }
+        //    if (message is RecoveryCompleted)
+        //    {
+        //        Context.ActorSelection("/usr/jobCoordinator").Tell(new InitCompletedMessage(InitCompletedMessage.ActorRole.StatusActor));
+        //    }
+        //}
 
         
         public override string PersistenceId => "StatusActor";
